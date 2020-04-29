@@ -1,8 +1,8 @@
 package com.example.trendinggit.GitAPI
 
-import com.example.trendinggit.contants.Contants.Companion.BASE_URL
 import com.example.trendinggit.contants.Contants.Companion.DEBUG
 import com.example.trendinggit.contants.Contants.Companion.REQUEST_TIME_OUT
+import com.example.trendinggit.contants.Contants.Companion.URL
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -18,8 +18,8 @@ object ApiClient{
             .setPrettyPrinting()
             .create();
 
-        baseUrl(BASE_URL)
-        addConverterFactory(GsonConverterFactory.create(gson))
+        baseUrl(URL)
+        addConverterFactory(GsonConverterFactory.create())
         client(createRequestInterceptorClient())
         build()
     }.create(ApiService::class.java)

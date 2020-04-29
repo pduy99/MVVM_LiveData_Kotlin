@@ -12,8 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.trendinggit.R
 import com.example.trendinggit.RepoDetail
 import com.example.trendinggit.databinding.LayoutRepoItemBinding
+import com.example.trendinggit.models.GitResponse
 import com.example.trendinggit.models.Item
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.layout_repo_item.view.*
 
 class RepoListAdapter(var context: Context, var listRepo : List<Item>) : RecyclerView.Adapter<RepoListAdapter.ViewHolder>(){
     class ViewHolder(itemView : LayoutRepoItemBinding): RecyclerView.ViewHolder(itemView.root){
@@ -21,8 +23,7 @@ class RepoListAdapter(var context: Context, var listRepo : List<Item>) : Recycle
 
         private val avatarImage = itemView.itemAvatar
         fun setupAvatar(item : Item){
-            Picasso.get().load(item.owner.avatar_url).into(avatarImage)
-
+            Picasso.get().load(item.avatar).into(avatarImage)
         }
     }
 
@@ -45,7 +46,7 @@ class RepoListAdapter(var context: Context, var listRepo : List<Item>) : Recycle
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context,RepoDetail::class.java)
-            intent.putExtra("HTML_URL",item.html_url);
+            intent.putExtra("HTML_URL",item.url);
             context.startActivity(intent);
         }
 

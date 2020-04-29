@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.trendinggit.adapters.RepoListAdapter
 import com.example.trendinggit.databinding.ActivityMainBinding
+import com.example.trendinggit.models.GitResponse
 import com.example.trendinggit.models.Item
 import com.example.trendinggit.viewmodels.RepoListViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -32,10 +33,10 @@ class MainActivity : AppCompatActivity() {
         repoListViewModel = ViewModelProviders.of(this).get(RepoListViewModel::class.java);
         repoListViewModel.fetchRepoList()
         repoListViewModel.repoList.observe(this, Observer(function = fun(repoList : List<Item>?){
-           repoList?.let {
-               initRecyclerView(repoList)
-               repoListAdapter.notifyDataSetChanged()
-           }
+            repoList?.let {
+                initRecyclerView(repoList)
+                repoListAdapter.notifyDataSetChanged()
+            }
         }))
     }
 

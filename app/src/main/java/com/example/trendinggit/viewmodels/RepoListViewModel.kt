@@ -3,6 +3,7 @@ package com.example.trendinggit.viewmodels
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.trendinggit.BaseViewModel
+import com.example.trendinggit.models.GitResponse
 import com.example.trendinggit.models.Item
 import com.example.trendinggit.repositories.RepoRepository
 
@@ -17,7 +18,7 @@ class RepoListViewModel : BaseViewModel() {
         repoRepository.getRepoList { isSuccess, response ->
             isLoadingData.value = true
             if(isSuccess){
-                repoList.value = response?.items
+                repoList.value = response
                 empty.value = false
             }
             else{
