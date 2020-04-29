@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools">
     <data>
         <import type="android.view.View"/>
+        <import type="android.graphics.Color"/>
         <variable
             name="item"
             type="com.example.trendinggit.models.Item"/>
@@ -11,7 +12,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp">
+    android:padding="20dp"
+    tools:ignore="ExtraText">
 
     <LinearLayout
         android:id="@+id/item_header_container"
@@ -32,7 +34,7 @@
             android:layout_marginStart="20dp"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:text="@{item.full_name}"/>
+            android:text="@{item.name}"/>
     </LinearLayout>
 
     <TextView
@@ -64,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="@{item.forks_count+``}"
+            android:text="@{item.forks+``}"
             android:textColor="@android:color/black" />
     </LinearLayout>
 
@@ -89,21 +91,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="@{item.stargazers_count+``}"
+            android:text="@{item.stars+``}"
             android:textColor="@android:color/black" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/item_issues_count"
+        android:id="@+id/item_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/item_description"
+        android:layout_toEndOf="@+id/item_star_container"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
-        android:layout_toEndOf="@id/item_star_container"
-        android:text="@{item.open_issues_count+` issues`}"
-        android:textColor="@android:color/black" />
-
+        android:text="@{item.language}"
+        android:textColor="@{item.languageColor != null ? Color.parseColor(item.languageColor) : @color/black}"/>
 
 </RelativeLayout>
 </layout>
