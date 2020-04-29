@@ -13,3 +13,6 @@ Main Screen            |  Repository detail screen
 :-------------------------:|:-------------------------:
 ![alt text](https://github.com/pduy99/Trending_Repositories_GitHub/blob/master/screenshot/MainScreen.png?raw=true)  |  ![alt text](https://github.com/pduy99/Trending_Repositories_GitHub/blob/master/screenshot/DetailScreen.png?raw=true)
 
+## Project Status
+
+Work on progress
