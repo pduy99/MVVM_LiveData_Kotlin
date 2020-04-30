@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 open class BaseViewModel : ViewModel() {
-    val empty = MutableLiveData<Boolean>().apply { value = true };
+    val isEmpty = MutableLiveData<Boolean>().apply { value = false };
     val isLoadingData = MutableLiveData<Boolean>().apply { value = false };
     val toastMessage = MutableLiveData<String>()
 }

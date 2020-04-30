@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout>
     <data>
         <import type="android.view.View"/>
@@ -14,31 +15,58 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Progress Bar indicates repolist is being loaded !-->
     <ProgressBar
+        android:id="@+id/progressBar_isLoadingRepoList"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="@{safeUnbox(viewmodel.isLoadingData) ? View.VISIBLE : View.GONE}">
-
+        android:layout_gravity="center">
     </ProgressBar>
 
-    <TextView
+    <!-- Layout container show notify if repolist is empty !-->
+
+    <LinearLayout
+        android:id="@+id/container_notify_repolist_empty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="No Repo to display"
-        android:textSize="20sp"
-        android:visibility="@{safeUnbox(viewmodel.empty) ? View.VISIBLE : View.GONE }">
+        android:orientation="vertical">
 
-    </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No repositories"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Please check your internet connection"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Or swipe down to refresh"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_listrepo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#00E40000"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         android:visibility="@{safeUnbox(viewmodel.isLoadingData) ? View.GONE : View.VISIBLE}">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -49,6 +77,7 @@
         </androidx.recyclerview.widget.RecyclerView>
 
     </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

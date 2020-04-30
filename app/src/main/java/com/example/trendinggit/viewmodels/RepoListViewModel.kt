@@ -16,13 +16,13 @@ class RepoListViewModel : BaseViewModel() {
         isLoadingData.value = true;
         Log.d("FETCH REPO","BEGINNING")
         repoRepository.getRepoList { isSuccess, response ->
-            isLoadingData.value = true
+            isLoadingData.value = false
             if(isSuccess){
                 repoList.value = response
-                empty.value = false
+                isEmpty.value = false
             }
             else{
-                empty.value = true
+                isEmpty.value = true
             }
         }
     }
