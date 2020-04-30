@@ -3,6 +3,7 @@ package com.example.trendinggit
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toolbar
@@ -25,6 +26,15 @@ class RepoDetail : AppCompatActivity() {
 
         setupWebView()
         webview_repo_detail.loadUrl(url);
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // handle back arrow button click
+        if(item.itemId == android.R.id.home){
+            finish()
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
     private fun setupWebView() {
