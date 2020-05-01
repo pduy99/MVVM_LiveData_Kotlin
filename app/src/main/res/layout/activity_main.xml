@@ -82,13 +82,13 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
-        android:backgroundTint="@android:color/holo_blue_light"
+        android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+        android:backgroundTint="@color/toolbar"
         app:liftOnScroll="true">
 
         <com.google.android.material.appbar.MaterialToolbar
-            style="@style/Widget.MaterialComponents.Toolbar"
-            android:layout_width="wrap_content"
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="Trending Git"/>
     </com.google.android.material.appbar.AppBarLayout>

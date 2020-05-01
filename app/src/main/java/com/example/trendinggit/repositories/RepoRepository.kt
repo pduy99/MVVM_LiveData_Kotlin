@@ -18,8 +18,8 @@ class RepoRepository {
             }
     }
 
-    fun getRepoList(onResult: (isSuccess : Boolean, response: List<Item>?) -> Unit){
-        ApiClient.instance.getRepo().enqueue(object : Callback<List<Item>> {
+    fun getRepoList(period : String, language : String, onResult: (isSuccess : Boolean, response: List<Item>?) -> Unit){
+        ApiClient.instance.getRepo(period, language ).enqueue(object : Callback<List<Item>> {
             override fun onFailure(call: Call<List<Item>>?, t: Throwable?) {
                 onResult(false,null)
             }

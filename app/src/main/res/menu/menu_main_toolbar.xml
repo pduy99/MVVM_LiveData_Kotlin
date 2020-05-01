@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/search_language"
+        android:icon="@drawable/ic_search_white_24dp"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/get_daily"
+        android:iconTint="@color/black"
+        android:title="Daily" />
+
+    <item
+        android:id="@+id/get_weekly"
+        android:iconTint="@color/black"
+        android:title="Weekly" />
+
+    <item
+        android:id="@+id/get_monthly"
+        android:iconTint="@color/black"
+        android:title="Monthly" />
+
+
+</menu>
